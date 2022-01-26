@@ -1,0 +1,17 @@
+Corrections I had to make:
+
+Added alt text to images, although they are more general and not perfect alt image (ie "user profile picture" as alt text for image)
+Added label text to the text input forms for adding comments. However, turned display off for these labels as placeholders are already sufficient.
+Added banner as role attribute for navbar
+Changed light gray color to darker shade of gray to fix contrast errors
+
+Alerts that are negligible/can't be fixed easily:
+Redundant links (all the links go to the same url for the time being). This might be fixable by changing some <a href...> to <button>.
+Nearby images have the same alt text because it's incredibly to get a descriptive alt text for the post images/profile images
+
+Accessibility problems relating to photos may be solvable through more complex process. This might include searching the Internet for the image and scraping information off the closest image, which wouldn't be a perfect solution but would work for some. 
+Captions are a bit more tricky and might be solvable through NLP (Natural Language Processing) but NLP can be very unreliable at times. This leaves user-generated captions in a inconvenient position.
+
+After attempting to navigate my site with CSS turned off on WAVE, I think the website is still usable. Yes, the contents of the site are positioned very oddly but the site still displays everything in the proper order and in a top down fashion.
+
+Without images, I think the website in its current state will be incredibly unusable, especially with the alt text being very broad and not too descriptive of the actual images. If the alt text can be remedied to be more accurate as to the contents of the images, then my website might still be usable if images were turned off.
