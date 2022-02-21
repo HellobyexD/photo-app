@@ -1,0 +1,59 @@
+body * {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+main {
+    display: flex;
+    justify-content: flex-end;
+}
+
+#suggestions {
+    width: 350px;
+    background-color: #f2f2f2;
+    padding: 5px;
+}
+
+.suggestion {
+    display: grid;
+    grid-template-columns: 40px auto 70px;
+    align-items: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.suggestion p {
+    margin: 0;
+}
+
+.suggestion img {
+    border-radius: 15px;
+}
+
+.suggestion .username {
+    font-weight: bold;
+    color: #555;
+}
+
+.suggestion .suggestion-text {
+    font-size: .9em;
+    color: #555;
+}
+
+.suggestion button {
+    padding: 5px 10px;
+    border: 1px;
+    border-color: #999;
+    border-radius: 4px;
+}
+
+.follow {
+    background: transparent;
+}
+
+.unfollow {
+    background: white;
+}
