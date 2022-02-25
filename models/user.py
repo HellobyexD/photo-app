@@ -35,6 +35,7 @@ class User(db.Model):
         self.email = email
         self.image_url = image_url
         self.thumb_url = thumb_url
+        self.password_plaintext = password_plaintext
 
     def set_password(self, password):
         self.password_hash = generate_password_hash(password)
@@ -50,6 +51,7 @@ class User(db.Model):
             'username': self.username,
             'email': self.email,
             'image_url': self.image_url,
-            'thumb_url': self.thumb_url
+            'thumb_url': self.thumb_url, 
+            'password_plaintext': self.password_plaintext
         }         
 

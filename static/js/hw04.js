@@ -138,6 +138,7 @@ const followUser = (userId, elem) => {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': getCookie('csrf_access_token')
             },
             body: JSON.stringify(postData)
         })
@@ -161,6 +162,9 @@ const unfollowUser = (followingId, elem) => {
     const deleteURL = `/api/following/${followingId}`;
     fetch(deleteURL, {
         method: "DELETE", 
+        headers: {
+            'X-CSRF-TOKEN': getCookie('csrf_access_token')
+        },
     })
     .then(response => response.json())
     .then(data => {
@@ -251,6 +255,7 @@ const likePost = (button, postId) => {
         method: "POST",
         headers: {
             'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': getCookie('csrf_access_token')
         },
         body: JSON.stringify(postData)
     })
@@ -271,6 +276,7 @@ const unlikePost = (button, postId, likeId) => {
         method: "DELETE",
         headers: {
             'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': getCookie('csrf_access_token')
         }
     })
     .then(response => response.json())
@@ -304,6 +310,7 @@ const bookmarkPost = (button, postId) => {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': getCookie('csrf_access_token')
             },
             body: JSON.stringify(postData)
         })
@@ -324,6 +331,7 @@ const unbookmarkPost = (button, bookmarkId) => {
         method: "DELETE",
         headers: {
             'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': getCookie('csrf_access_token')
         }
     })
     .then(response => response.json())
@@ -350,6 +358,7 @@ const postComment = (ev, postId) => {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': getCookie('csrf_access_token')
             },
             body: JSON.stringify(postData)
         })
@@ -441,6 +450,22 @@ const displaySuggestions = () => {
             html += users.map(user2Html).join('\n'); 
             document.querySelector('.suggestions').innerHTML = html;
         });
+};
+
+const getCookie = key => {
+    let name = key + "=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for (let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
 };
 
 const initPage = () => {
